@@ -320,16 +320,17 @@ export function load(app: Application) {
   const baseUrlAddons = 'https://threejs.org/docs/#examples/en/';
 
   app.converter.addUnknownSymbolResolver((ref: DeclarationReference) => {
-    // We only care about resolving links to symbols from the 'three' module.
-    if (ref.moduleSource !== 'three' && ref.moduleSource !== '@types/three') {
-      return;
-    }
-
     if (!ref.symbolReference?.path) {
       return;
     }
-
     const path = ref.symbolReference.path;
+    const isThreePound = path.length >= 2 && path[0].path === 'three' &&
+        path[1].navigation === '#';
+    // We only care about resolving links to symbols from the 'three' module.
+    if (!isThreePound && ref.moduleSource !== 'three' &&
+        ref.moduleSource !== '@types/three') {
+      return;
+    }
     let className: string|undefined;
     let memberName: string|null = null;
     let classIndex = -1;
