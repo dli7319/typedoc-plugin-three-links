@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-three-links",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Links to three.js classes in your TypeDoc.",
   "main": "dist/index.js",
 	"type": "module",
