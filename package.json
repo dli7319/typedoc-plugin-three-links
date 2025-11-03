@@ -1,10 +1,11 @@
 {
   "name": "typedoc-plugin-three-links",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Links to three.js classes in your TypeDoc.",
   "main": "dist/index.js",
 	"type": "module",
   "scripts": {
+    "prebuild": "ts-node src/build-three-pages.ts",
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\""
@@ -26,6 +27,8 @@
   },
   "homepage": "https://github.com/dli7319/typedoc-plugin-three-linkshttps://github.com/dli7319/ts-file-counter#readme",
   "devDependencies": {
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2",
     "typedoc": "^0.28.12",
     "typescript": "^5.9.2"
   }
